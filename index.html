@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/icon/site.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Game</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <img class="logo" src="assets/memory.png" alt="boy" />
+        <h1 class="title">Find a pair</h1>
+        <h2 class="title sub">You have 1 minute to complete this!</h2>
+      </header>
+
+      <div class="game-container">
+        <div class="game-info">
+          <div id="timer"><span id="time">01:00</span></div>
+
+          <div class="play-control">
+            <div class="start">
+              <button class="btn-start">
+                <img
+                  src="assets/free-icon-start-button-6077379.png"
+                  alt="start"
+                />
+              </button>
+            </div>
+            <div class="sound">
+              <button class="btn-sound">
+                <img class="img" src="assets/on-sound.png" alt="sound" />
+              </button>
+            </div>
+            <div class="reset">
+              <button class="btn-reset">
+                <img src="assets/res.png" alt="Reset Game" />
+              </button>
+            </div>
+          </div>
+          <div class="result">
+            <p class="title-result">Your result:</p>
+            <p class="subtitle-result">
+              Score - <span id="current-score">0</span>
+            </p>
+            <p class="subtitle-result">
+              Time - <span id="current-time">0</span>
+            </p>
+            <p class="subtitle-result">
+              Moves - <span id="current-moves">0</span>
+            </p>
+          </div>
+          <div id="resultBoard"></div>
+          <div class="last-results">
+            <div class="btn-results"><span>Your last results</span></div>
+          </div>
+        </div>
+
+        <div class="game-cards-container">
+          <div class="game-cards">
+            <div class="memory-card" data-word="car">
+              <img class="front-face" src="assets/car.jpg" alt="car" />
+              <img class="back-face" src="assets/question.png" alt="car" />
+            </div>
+            <div class="memory-card" data-word="car">
+              <img class="front-face" src="assets/car.jpg" alt="car" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+
+            <div class="memory-card" data-word="dog">
+              <img class="front-face" src="assets/dog.jpg" alt="dog" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+            <div class="memory-card" data-word="dog">
+              <img class="front-face" src="assets/dog.jpg" alt="dog" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+
+            <div class="memory-card" data-word="flower">
+              <img class="front-face" src="assets/flower2.jpg" alt="flower" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+            <div class="memory-card" data-word="flower">
+              <img class="front-face" src="assets/flower2.jpg" alt="flower" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+
+            <div class="memory-card" data-word="house">
+              <img class="front-face" src="assets/house.jpg" alt="house" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+            <div class="memory-card" data-word="house">
+              <img class="front-face" src="assets/house.jpg" alt="house" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+
+            <div class="memory-card" data-word="mirror">
+              <img class="front-face" src="assets/mirror.jpg" alt="mirror" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+            <div class="memory-card" data-word="mirror">
+              <img class="front-face" src="assets/mirror.jpg" alt="mirror" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+
+            <div class="memory-card" data-word="money">
+              <img class="front-face" src="assets/money.jpg" alt="money" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+            <div class="memory-card" data-word="money">
+              <img class="front-face" src="assets/money.jpg" alt="money" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+
+            <div class="memory-card" data-word="orange">
+              <img class="front-face" src="assets/orange.jpg" alt="orange" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+            <div class="memory-card" data-word="orange">
+              <img class="front-face" src="assets/orange.jpg" alt="orange" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+
+            <div class="memory-card" data-word="cat">
+              <img class="front-face" src="assets/cat.jpg" alt="cat" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+            <div class="memory-card" data-word="cat">
+              <img class="front-face" src="assets/cat.jpg" alt="cat" />
+              <img class="back-face" src="assets/question.png" alt="question" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer"></footer>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <h2 id="modal-message">Game Over</h2>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

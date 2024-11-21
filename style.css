@@ -1,0 +1,398 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: "Dangrek", sans-serif;
+  font-style: normal;
+  background: rgb(238, 230, 245);
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 1px;
+  background: rgb(232, 222, 241);
+}
+
+.logo {
+  width: 50px;
+  padding: 5px;
+  background-color: whitesmoke;
+  border: 1px solid rgb(100, 178, 238);
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  padding: 0;
+  color: rgb(100, 178, 238);
+}
+
+.title.sub {
+  font-size: 1.5em;
+  color: rgb(54, 48, 48);
+}
+
+.game-container {
+  display: flex;
+  width: 100%;
+  margin: 10px auto;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 5em;
+  height: 1.5em;
+  text-align: center;
+  letter-spacing: 3px;
+  overflow: hidden;
+  font-size: 2.5em;
+  font-weight: 700;
+  background-color: whitesmoke;
+  border: 1px solid rgb(100, 178, 238);
+  border-radius: 10px;
+}
+
+.game-info {
+  width: 45%;
+  margin: 0 auto;
+  border-right: 3px dotted rgb(100, 178, 238);
+  border-radius: 20px;
+}
+
+.play-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.btn-start,
+.btn-sound,
+.btn-reset {
+  margin: 0 auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.btn-sound img {
+  width: 50px;
+  height: auto;
+}
+
+.btn-start:hover,
+.btn-sound:hover,
+.btn-reset:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.btn-start img:active,
+.btn-sound img:active,
+.btn-reset img:active {
+  transform: scale(0.9) translateY(2px);
+}
+
+.btn-start {
+  width: 100px;
+  height: auto;
+}
+
+.btn-start img {
+  width: 100%;
+}
+
+.btn-reset img {
+  width: 70px;
+  height: auto;
+}
+
+.result {
+  margin: 1em auto;
+  text-align: center;
+}
+
+.title-result {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.subtitle-result {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.subtitle-result span {
+  color: rgb(100, 178, 238);
+}
+
+.btn-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+  width: 10em;
+  height: 2em;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  overflow: hidden;
+  background-color: whitesmoke;
+  border: 1px solid rgb(100, 178, 238);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.btn-results:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.btn-results:active {
+  transform: scale(0.9) translateY(2px);
+}
+
+.game-cards-container {
+  width: 50%;
+  border-left: 3px dotted rgb(100, 178, 238);
+  border-radius: 20px;
+}
+
+.game-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.3s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  animation: shake 0.6s;
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  position: absolute;
+  border-radius: 3px;
+  background: rgb(224, 204, 242);
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+.back-face {
+  padding: 30px;
+}
+
+h2 {
+  color: rgb(100, 178, 238);
+  font-weight: 700;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: whitesmoke;
+  padding: 2em;
+  text-align: center;
+  border-radius: 10px;
+  transform: scale(0.5);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#modal-message {
+  font-size: 3em;
+  font-weight: bold;
+  color: rgb(100, 178, 238);
+}
+
+@media (max-width: 1100px) {
+  .game-cards {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 950px) {
+  html,
+  body {
+    overflow: scroll;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .game-container {
+    flex-direction: column-reverse;
+  }
+
+  .game-info {
+    width: 80%;
+    margin-top: 20px;
+    border: none;
+  }
+
+  .game-cards-container {
+    margin: 10px auto;
+    width: 80%;
+    border: none;
+  }
+
+  .game-cards {
+    width: 550px;
+    height: 550px;
+  }
+}
+
+@media (max-width: 650px) {
+  .title {
+    font-size: 2em;
+  }
+
+  #timer {
+    width: 3.5em;
+    font-size: 2em;
+  }
+
+  .btn-start {
+    width: 70px;
+  }
+
+  .btn-sound img {
+    width: 40px;
+  }
+
+  .btn-reset img {
+    width: 50px;
+  }
+
+  .game-cards {
+    width: 350px;
+    height: 350px;
+  }
+  .back-face {
+    padding: 20px;
+  }
+
+  #modal-message {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 400px) {
+  .title.sub {
+    font-size: 1em;
+  }
+
+  .btn-start {
+    width: 60px;
+  }
+
+  .btn-sound img {
+    width: 30px;
+  }
+
+  .btn-reset img {
+    width: 45px;
+  }
+
+  .title-result {
+    font-size: 1.7em;
+  }
+
+  .game-cards {
+    width: 95%;
+    width: 300px;
+    height: 300px;
+  }
+  #modal-message {
+    font-size: 1.5em;
+  }
+}
